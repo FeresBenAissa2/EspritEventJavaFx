@@ -19,6 +19,7 @@ public class ViewFactroy {
     private AnchorPane manageClubsView;
     private AnchorPane manageEventsView;
     private AnchorPane manageLocalsView;
+    private AnchorPane ProcessClubCreationRequestView;
     Stage stage = new Stage();
     public ViewFactroy() {
             this.adminSelectedMenuItem = new SimpleStringProperty("");
@@ -74,6 +75,17 @@ public class ViewFactroy {
 
         }
         return manageLocalsView;
+    }
+    public AnchorPane getProcessClubCreationRequestView (){
+        if(ProcessClubCreationRequestView == null){
+            try {
+                ProcessClubCreationRequestView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ProcessClubCreationRequest.fxml")).load();
+            }catch (Exception e ){
+                e.printStackTrace();
+            }
+
+        }
+        return ProcessClubCreationRequestView;
     }
 
     public void showLoginWindow (){

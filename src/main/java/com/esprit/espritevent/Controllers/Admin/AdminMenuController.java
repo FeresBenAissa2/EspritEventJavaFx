@@ -18,7 +18,7 @@ public class AdminMenuController implements Initializable {
     public Button logout_btn;
     public Button profile_btn;
     public Button manage_locals_btn;
-
+    public Button process_club_creation_request_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,6 +36,7 @@ public class AdminMenuController implements Initializable {
         manage_clubs_btn.setOnAction(event -> onManageClubs());
         manage_events_btn.setOnAction(event -> onManageEvents());
         manage_locals_btn.setOnAction(event -> onManageLocals());
+        process_club_creation_request_btn.setOnAction(event -> onProcessClubCreationRequest());
     }
     private void onDashboard (){
 
@@ -50,5 +51,8 @@ public class AdminMenuController implements Initializable {
 
     private void onManageLocals (){
         Model.getInstance().getViewFactroy().getAdminSelectedMenuItem().set("ManageLocals");
+    }
+    private void onProcessClubCreationRequest (){
+        Model.getInstance().getViewFactroy().getAdminSelectedMenuItem().set("ProcessClubCreationRequest");
     }
 }

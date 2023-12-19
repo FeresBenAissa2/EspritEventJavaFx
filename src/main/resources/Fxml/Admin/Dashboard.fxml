@@ -2,27 +2,23 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/AdminDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.Admin.DashboardController">
    <children>
-      <Text fx:id="user_name" layoutX="21.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Hi, Feres" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="35.05078125" />
-      <Label fx:id="login_date" layoutX="808.0" layoutY="34.0" styleClass="date_lbl" text="Today, 2022 - 06 - 01 " AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="34.0" />
+      <Text layoutX="21.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Hi," AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="35.05078125" />
+      <Label fx:id="current_date_fid" layoutX="722.0" layoutY="34.0" styleClass="date_lbl" text="2022-06-01 " AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="34.0" />
       <Text layoutX="21.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Dashboard" />
-      <HBox prefHeight="180.0" prefWidth="823.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
+      <HBox prefHeight="204.0" prefWidth="823.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
          <children>
             <AnchorPane prefHeight="150.0" prefWidth="295.0">
                <children>
                   <Label styleClass="account_balance" text="Clubs" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="25.0" />
                   <FontAwesomeIconView layoutX="244.0" layoutY="56.0" size="30" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
-                  <Label layoutX="198.0" layoutY="112.0" styleClass="account_balance" text="10" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                  <Label fx:id="count_clubs_fid" layoutX="198.0" layoutY="112.0" styleClass="account_balance" text="10" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
                </children>
                <styleClass>
                   <String fx:value="account" />
@@ -33,7 +29,7 @@
                <children>
                   <Label styleClass="account_balance" text="Events" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="25.0" />
                   <FontAwesomeIconView layoutX="244.0" layoutY="56.0" size="30" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
-                  <Label layoutX="209.0" layoutY="114.0" styleClass="account_balance" text="10" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                  <Label fx:id="count_events_fid" layoutX="209.0" layoutY="114.0" styleClass="account_balance" text="10" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
                </children>
                <styleClass>
                   <String fx:value="account" />
@@ -42,9 +38,9 @@
             </AnchorPane>
             <AnchorPane prefHeight="150.0" prefWidth="295.0">
                <children>
-                  <Label styleClass="account_balance" text="Students" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="25.0" />
+                  <Label styleClass="account_balance" text="Locals" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="25.0" />
                   <FontAwesomeIconView layoutX="244.0" layoutY="56.0" size="30" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
-                  <Label layoutX="212.0" layoutY="116.0" styleClass="account_balance" text="10" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                  <Label fx:id="count_locals_fid" layoutX="198.0" layoutY="112.0" styleClass="account_balance" text="10" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
                </children>
                <styleClass>
                   <String fx:value="account" />
@@ -53,19 +49,7 @@
             </AnchorPane>
          </children>
       </HBox>
-      <Text layoutX="21.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Latest Transactions" />
-      <Text layoutX="631.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Add new Student Section" />
-      <ListView layoutX="21.0" layoutY="325.0" prefHeight="365.0" prefWidth="570.0" styleClass="transaction_listview" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" />
-      <VBox layoutX="608.0" layoutY="371.0" prefHeight="365.0" prefWidth="240.0" styleClass="new_trans_container" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <children>
-            <Label text="Student Name" />
-            <TextField />
-            <Label text="Student class" />
-            <TextField />
-            <Label text="Label" />
-            <TextField />
-            <Button mnemonicParsing="false" text="Create New Student " />
-         </children>
-      </VBox>
+      <Text fx:id="user_name_fid" layoutX="58.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Feres" wrappingWidth="168.0" />
+      <Label layoutX="670.0" layoutY="33.0" styleClass="date_lbl" text="Today," />
    </children>
 </AnchorPane>

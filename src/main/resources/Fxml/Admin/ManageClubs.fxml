@@ -14,25 +14,30 @@
    <children>
       <VBox fx:id="local" layoutY="1.0" prefHeight="750.0" prefWidth="250.0" styleClass="new_local_container">
          <children>
-            <Label text="clubName" />
+            <Label text="Club Name" />
             <TextField fx:id="club_name_fid" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="clubDescription" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="Text" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club Description" />
             <TextField fx:id="club_description_fid" prefHeight="250.0" prefWidth="223.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="foundingDate" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="Text" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Founding Date" />
             <DatePicker fx:id="founding_date_fid" prefHeight="39.0" prefWidth="232.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="clubEmail" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="Text" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club Email" />
             <TextField fx:id="club_email_fid" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="clubState" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="Text" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club State" />
             <TextField fx:id="club_state_fid" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="Text" />
             <Button fx:id="save_btn_fid" mnemonicParsing="false" styleClass="save_button" text="Save" />
             <Button fx:id="update_btn_fid" mnemonicParsing="false" styleClass="update_button" text="Update" />
             <Button fx:id="delete_btn_fid" mnemonicParsing="false" text="Delete" />
          </children>
       </VBox>
-      <AnchorPane layoutX="266.0" layoutY="14.0" prefHeight="750.0" prefWidth="600.0" styleClass="new_local_container">
+      <AnchorPane layoutX="250.0" layoutY="1.0" prefHeight="750.0" prefWidth="600.0" styleClass="new_local_container">
          <children>
             <Text layoutX="27.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="page_title" text="Manage Clubs" />
-            <TableView fx:id="club_table_view_fid" layoutX="27.0" layoutY="146.0" prefHeight="458.0" prefWidth="547.0">
+            <TableView fx:id="club_table_view_fid" layoutX="27.0" layoutY="146.0" prefHeight="458.0" prefWidth="555.0">
                <columns>
                   <TableColumn fx:id="column_club_id_fid" prefWidth="34.4000244140625" text="id" />
                   <TableColumn fx:id="column_club_name_fid" prefWidth="50.39996337890625" text="Name" />

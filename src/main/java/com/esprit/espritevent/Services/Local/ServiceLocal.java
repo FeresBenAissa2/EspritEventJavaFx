@@ -15,6 +15,8 @@ public class ServiceLocal implements IServiceLocal{
 
     @Override
     public void addLocal(Local local) throws SQLException {
+        System.out.println("add Local service");
+        System.out.println(local.getLocalAvailableFrom());
         try {
 
             preparedStatement = conn.prepareStatement("INSERT INTO `local` (`is_booked`,`local_available_from`,`local_available_until`,`local_capacity`,`local_name`) VALUES (?,?,?,?,?);");
