@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -47,6 +48,11 @@
                   <TableColumn fx:id="column_president_name_fid" minWidth="0.0" prefWidth="130.4000244140625" text="President Name" />
                </columns>
             </TableView>
+            <Button fx:id="refresh_btn_fid" layoutX="27.0" layoutY="104.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="108.0" styleClass="refresh_btn">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>

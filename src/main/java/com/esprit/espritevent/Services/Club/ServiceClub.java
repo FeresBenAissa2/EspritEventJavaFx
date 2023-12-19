@@ -56,6 +56,34 @@ public class ServiceClub implements IServiceClub{
     }
 
     @Override
+    public List<Club> getAllApprovedClubs() throws SQLException {
+        ObservableList<Club> clubs = FXCollections.observableArrayList();
+
+        try  {
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Club WHERE club_state = ?");
+            ps.setString(1, ClubState.APPROVED.toString()); // Set the parameter for the WHERE clause
+            ResultSet res = ps.executeQuery();
+
+            while (res.next()) {
+                Club club = new Club(
+                        res.getLong("id_club"),
+                        res.getString("club_name"),
+                        res.getString("club_description"),
+                        res.getDate("founding_date"),
+                        res.getString("club_email"),
+                        ClubState.valueOf(res.getString("club_state")) // Use valueOf for ClubState
+                );
+                clubs.add(club);
+                System.out.println(club);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return clubs;
+    }
+
+    @Override
 
     public List<Club> getAllClubCreationRequests() throws SQLException {
         ObservableList<Club> clubs = FXCollections.observableArrayList();
@@ -105,6 +133,18 @@ public class ServiceClub implements IServiceClub{
             ps.executeUpdate();
         }  catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public long countClubs() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS club_count FROM Club")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong("club_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
         }
     }
 

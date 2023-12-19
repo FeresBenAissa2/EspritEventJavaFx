@@ -73,3 +73,7 @@
     -fx-text-fill:#fff;
     -fx-font-family:"Arial";
 }
+.refresh_btn{
+    -fx-background-color: linear-gradient(to left, #AAAAAA, #FFFFFF);
+    -fx-pref-width: 23;
+}

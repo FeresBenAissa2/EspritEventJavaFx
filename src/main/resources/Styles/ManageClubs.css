@@ -72,3 +72,9 @@
     -fx-fill: #cc181a;
     -fx-font-weight: bold;
 }
+.refresh_btn{
+    -fx-background-color: linear-gradient(to left, #cc181a, #cc181a);
+    -fx-pref-width: 23;
+    -fx-fill: #FFFFFF;
+
+}

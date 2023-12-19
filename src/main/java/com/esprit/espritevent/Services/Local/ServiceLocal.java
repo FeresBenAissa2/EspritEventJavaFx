@@ -59,6 +59,18 @@ public class ServiceLocal implements IServiceLocal{
     }
 
     @Override
+    public long countLocals() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS local_count FROM Local")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong("local_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
+        }
+    }
+
+    @Override
     public void updateLocal(Local local) throws SQLException {
         try {
 
