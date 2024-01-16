@@ -16,4 +16,9 @@ public interface IServiceClub {
     long countClubs()throws SQLException;
     void updateClub(Club club) throws  SQLException;
     void deleteClub(long id )throws  SQLException;
+
+    int getAcceptedClubsCount()throws  SQLException;
+    int getRefusedClubsCount()throws  SQLException;
+    int getInProgressClubsCount()throws  SQLException;
+
 }

@@ -109,6 +109,9 @@ public class ViewFactroy {
         loader.setController(studentController);
         createStage(loader);
     }
+
+
+    
     private void createStage (FXMLLoader loader){
         Scene scene = null;
         try

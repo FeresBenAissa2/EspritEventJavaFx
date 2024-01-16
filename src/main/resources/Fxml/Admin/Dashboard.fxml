@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -49,7 +50,12 @@
             </AnchorPane>
          </children>
       </HBox>
-      <Text fx:id="user_name_fid" layoutX="58.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Feres" wrappingWidth="168.0" />
+      <Text fx:id="user_name_fid" layoutX="58.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Feres" wrappingWidth="365.0" />
       <Label layoutX="670.0" layoutY="33.0" styleClass="date_lbl" text="Today," />
+      <HBox layoutX="14.0" layoutY="339.0" prefHeight="397.0" prefWidth="823.0">
+         <children>
+            <PieChart fx:id="pie_chart_fid" prefHeight="397.0" prefWidth="419.0" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

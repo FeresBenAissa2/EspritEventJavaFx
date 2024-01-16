@@ -28,10 +28,12 @@ public class ProcessClubCreationRequestController  implements Initializable  {
     public TableColumn <Club, String> column_president_name_fid;
     public Button accept_btn_fid;
     public Button refuse_btn_fid;
+    public Button refresh_btn_fid;
     ServiceClub serviceClub = new ServiceClub();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        refresh_btn_fid.setOnAction(event -> refreshTable());
         accept_btn_fid.setOnAction(event -> this.acceptClubCreationRequest());
         refuse_btn_fid.setOnAction(event -> this.refuseClubCreationRequest());
         initTable();
@@ -52,6 +54,7 @@ public class ProcessClubCreationRequestController  implements Initializable  {
         });
         column_club_email_fid.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getClubEmail()));
         column_club_id_fid.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getIdClub()));
+        column_president_name_fid.setCellValueFactory(cell -> new SimpleObjectProperty<>(cell.getValue().getPresident().getNom()+" "+cell.getValue().getPresident().getPrenom()));
     }
     private void refreshTable() {
         try {

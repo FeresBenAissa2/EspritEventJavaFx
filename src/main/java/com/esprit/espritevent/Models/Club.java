@@ -11,6 +11,7 @@ public class Club {
     private Date foundingDate;
     private String clubEmail;
     private ClubState clubState;
+    private ClubStatus clubStatus;
     private User president;
     private List<Event> events;
 
@@ -23,6 +24,17 @@ public class Club {
         this.clubState = clubState;
         this.president = president;
         this.events = events;
+    }
+
+    public Club(long idClub, String clubName, String clubDescription, Date foundingDate, String clubEmail, ClubState clubState, ClubStatus clubStatus, User president) {
+        this.idClub = idClub;
+        this.clubName = clubName;
+        this.clubDescription = clubDescription;
+        this.foundingDate = foundingDate;
+        this.clubEmail = clubEmail;
+        this.clubState = clubState;
+        this.clubStatus = clubStatus;
+        this.president = president;
     }
 
     public Club(long idClub, String clubName, String clubDescription, Date foundingDate, String clubEmail, ClubState clubState, User president) {
@@ -106,4 +118,26 @@ public class Club {
         this.events = events;
     }
 
+    public ClubStatus getClubStatus() {
+        return clubStatus;
+    }
+
+    public void setClubStatus(ClubStatus clubStatus) {
+        this.clubStatus = clubStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Club{" +
+                "idClub=" + idClub +
+                ", clubName='" + clubName + '\'' +
+                ", clubDescription='" + clubDescription + '\'' +
+                ", foundingDate=" + foundingDate +
+                ", clubEmail='" + clubEmail + '\'' +
+                ", clubState=" + clubState +
+                ", clubStatus=" + clubStatus +
+                ", president=" + president +
+                ", events=" + events +
+                '}';
+    }
 }

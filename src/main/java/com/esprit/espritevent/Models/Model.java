@@ -95,6 +95,10 @@ public class Model {
                     this.user.setId(resultSet.getInt("id_user"));
                     this.user.setUsername(resultSet.getString("username"));
                     this.user.setPassword(resultSet.getString("password"));
+                    this.user.setAge(resultSet.getInt("age"));
+                    this.user.setNom(resultSet.getString("nom"));
+                    this.user.setPrenom(resultSet.getString("prenom"));
+                    this.user.setPhone(resultSet.getLong("phone"));
                     this.user.setRole(resultSet.getString("role"));
                     if(this.user.getRole().equals(Roles.ADMIN.name())) {
                         this.adminLoginSuccessFlag = true;
