@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class ViewFactroy {
     //Admin views
     private final SimpleStringProperty adminSelectedMenuItem;

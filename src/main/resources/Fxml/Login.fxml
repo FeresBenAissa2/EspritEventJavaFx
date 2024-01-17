@@ -25,5 +25,7 @@
          </VBox.margin>
       </Button>
       <Text fx:id="error_lbl" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" />
+      <VBox fx:id="vbox_map_fid" prefHeight="400.0" prefWidth="500.0" />
+
    </VBox>
 </AnchorPane>

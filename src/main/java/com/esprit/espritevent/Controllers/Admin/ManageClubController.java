@@ -1,16 +1,13 @@
 package com.esprit.espritevent.Controllers.Admin;
 
 import com.esprit.espritevent.Models.Club;
-import com.esprit.espritevent.Models.ClubState;
 import com.esprit.espritevent.Models.ClubStatus;
-import com.esprit.espritevent.Models.Local;
 import com.esprit.espritevent.Services.Club.ServiceClub;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.FileInputStream;
@@ -19,8 +16,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
-
 
 public class ManageClubController implements Initializable {
     public TextField club_email_fid;
@@ -63,6 +58,7 @@ public class ManageClubController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         refresh_btn_fid.setOnAction(event -> refreshTable());
         update_btn_fid.setOnAction(event -> updateClub());
+        export_excel_fid.setOnAction(event ->serviceClub.exportTableToExcel());
         initTable();
         refreshTable();
     }
@@ -162,11 +158,50 @@ public class ManageClubController implements Initializable {
         }
         return isValid;
     }
-    public void exportTableToExcel (){
-
-
-
-    }
+//    public void exportTableToExcel (){
+//        HSSFWorkbook wb = new HSSFWorkbook();
+//        HSSFSheet sheet= wb.createSheet("Club Details ");
+//        HSSFRow header = sheet.createRow(0);
+//        header.createCell(0).setCellValue("ID");
+//        header.createCell(1).setCellValue("NAME");
+//        header.createCell(2).setCellValue("DESCRIPTION");
+//        header.createCell(3).setCellValue("FOUNDING DATE");
+//        header.createCell(4).setCellValue("CLUB EMAIl");
+//        header.createCell(5).setCellValue("PRESIDENT NAME");
+//        header.createCell(6).setCellValue("STATUS");
+//
+//        Connection conn = DataSource.getInstance().getConn();
+//        try  {
+//            PreparedStatement ps = conn.prepareStatement("SELECT Club.*, User.* FROM Club INNER JOIN User ON Club.president_id_user = User.id_user WHERE club_state = ?");
+//            ps.setString(1, ClubState.APPROVED.toString()); // Set the parameter for the WHERE clause
+//            ResultSet res = ps.executeQuery();
+//            int index=1;
+//            while (res.next()) {
+//                HSSFRow row = sheet.createRow(index);
+//                row.createCell(0).setCellValue(res.getLong("id_club"));
+//                row.createCell(1).setCellValue(res.getString("club_name"));
+//                row.createCell(2).setCellValue( res.getString("club_description"));
+//                row.createCell(3).setCellValue(res.getDate("founding_date"));
+//                row.createCell(4).setCellValue(res.getString("club_email"));
+//                row.createCell(5).setCellValue(res.getString("nom")+res.getString("prenom"));
+//                row.createCell(6).setCellValue(res.getString("club_status"));
+//                index++;
+//            }
+//
+//            FileOutputStream    fileOutputStream = new FileOutputStream("ClubDetails.xls");
+//            wb.write(fileOutputStream);
+//            fileOutputStream.close();
+//        }catch (SQLException e) {
+//
+//            e.printStackTrace();
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//
+//    }
     private void clearErrorMessages() {
         errorClubName.setText("");
         errorClubDescription.setText("");

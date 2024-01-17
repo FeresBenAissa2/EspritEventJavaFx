@@ -7,7 +7,13 @@ import com.esprit.espritevent.Models.User;
 import com.esprit.espritevent.Utils.DataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.util.List;
 
@@ -240,5 +246,55 @@ public class ServiceClub implements IServiceClub{
                 throw new SQLException("Failed to retrieve club count");
             }
         }
+    }
+
+    public void exportTableToExcel (){
+        HSSFWorkbook wb = new HSSFWorkbook();
+        HSSFSheet sheet= wb.createSheet("Club Details ");
+        HSSFRow header = sheet.createRow(0);
+        header.createCell(0).setCellValue("ID");
+        header.createCell(1).setCellValue("NAME");
+        header.createCell(2).setCellValue("DESCRIPTION");
+        header.createCell(3).setCellValue("FOUNDING DATE");
+        header.createCell(4).setCellValue("CLUB EMAIl");
+        header.createCell(5).setCellValue("PRESIDENT NAME");
+        header.createCell(6).setCellValue("STATUS");
+        sheet.autoSizeColumn(0);
+        sheet.autoSizeColumn(1);
+        sheet.setColumnWidth(2,265*35);
+        sheet.autoSizeColumn(3);
+        sheet.setColumnWidth(4,265*25);
+        sheet.autoSizeColumn(5);
+        sheet.autoSizeColumn(6);
+        try  {
+            PreparedStatement ps = conn.prepareStatement("SELECT Club.*, User.* FROM Club INNER JOIN User ON Club.president_id_user = User.id_user WHERE club_state = ?");
+            ps.setString(1, ClubState.APPROVED.toString()); // Set the parameter for the WHERE clause
+            ResultSet res = ps.executeQuery();
+            int index=1;
+            while (res.next()) {
+                HSSFRow row = sheet.createRow(index);
+                row.createCell(0).setCellValue(res.getLong("id_club"));
+                row.createCell(1).setCellValue(res.getString("club_name"));
+                row.createCell(2).setCellValue( res.getString("club_description"));
+                row.createCell(3).setCellValue(res.getDate("founding_date"));
+                row.createCell(4).setCellValue(res.getString("club_email"));
+                row.createCell(5).setCellValue(res.getString("nom")+res.getString("prenom"));
+                row.createCell(6).setCellValue(res.getString("club_status"));
+                index++;
+            }
+
+            FileOutputStream fileOutputStream = new FileOutputStream("ClubDetails.xls");
+            wb.write(fileOutputStream);
+            fileOutputStream.close();
+        }catch (SQLException e) {
+
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }
