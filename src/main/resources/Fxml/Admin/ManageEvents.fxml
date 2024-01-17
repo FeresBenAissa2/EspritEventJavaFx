@@ -34,7 +34,7 @@
             <Text layoutX="20.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event State" />
             <TextField fx:id="event_local_fid" layoutX="20.0" layoutY="530.0" text="zeazea" />
             <Text layoutX="20.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event State" />
-            <TextField fx:id="event_participants_fid" layoutX="20.0" layoutY="530.0" text="zeazea" />
+<!--            <TextField fx:id="event_participants_fid" layoutX="20.0" layoutY="530.0" text="zeazea" />-->
             <Text layoutX="20.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event State" />
             <Button fx:id="save_btn_fid" mnemonicParsing="false" styleClass="save_button" text="Save" />
             <Button fx:id="update_btn_fid" mnemonicParsing="false" styleClass="update_button" text="Update" />
@@ -53,7 +53,7 @@
                   <TableColumn fx:id="column_event_end_date_fid" minWidth="0.0" prefWidth="94.0" text="EventState" />
                   <TableColumn fx:id="column_event_club_fid" minWidth="0.0" prefWidth="43.0" text="Club" />
                   <TableColumn fx:id="column_event_local_fid" minWidth="0.0" prefWidth="70.0" text="Local" />
-                  <TableColumn fx:id="column_event_participants_fid" minWidth="0.0" prefWidth="70.0" text="Participants" />
+<!--                  <TableColumn fx:id="column_event_participants_fid" minWidth="0.0" prefWidth="70.0" text="Participants" />-->
                </columns>
             </TableView>
          </children>

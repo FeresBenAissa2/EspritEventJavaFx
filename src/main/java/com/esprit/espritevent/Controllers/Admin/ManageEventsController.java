@@ -76,12 +76,9 @@ public class ManageEventsController implements Initializable {
             Event event = new Event();
             event.setEventName(event_name_fid.getText());
             event.setEventDescription(event_description_fid.getText());
-            event.setEventState(EventState.valueOf(event_state_fid.getText()));
+//            event.setEventState(EventState.valueOf(event_state_fid.getText()));
 //            event.setEventStartDate(event_start_date_fid.getValue());
 //            event.setEventEndDate(event_end_date_fid.getValue());
-            event.setEventState(EventState.valueOf(event_state_fid.getText()));
-            event.setEventState(EventState.valueOf(event_state_fid.getText()));
-            event.setEventState(EventState.valueOf(event_state_fid.getText()));
             eventService.addEvent(event);
             event_description_fid.setText("");
             event_name_fid.setText("");

@@ -10,9 +10,11 @@ public class Event {
     private String eventDescription ;
     private Date eventStartDate;
     private Date eventEndDate;
-    private EventState eventState;
+//    private EventState eventState;
     private Club club;
     private Local eventLocal;
+//    private List<User> participants;
+
 
     public Event() {
 
@@ -26,10 +28,10 @@ public class Event {
                 ", eventDescription='" + eventDescription + '\'' +
                 ", eventStartDate=" + eventStartDate +
                 ", eventEndDate=" + eventEndDate +
-                ", eventState=" + eventState +
+//                ", eventState=" + eventState +
                 ", club=" + club +
                 ", eventLocal=" + eventLocal +
-                ", participants=" + participants +
+//                ", participants=" + participants +
                 '}';
     }
 
@@ -65,16 +67,16 @@ public class Event {
         this.eventStartDate = eventStartDate;
     }
 
-    public Event(long idEvent, String eventName, String eventDescription, Date eventStartDate, Date eventEndDate, EventState eventState, Club club, Local eventLocal, List<User> participants) {
+    public Event(long idEvent, String eventName, String eventDescription, Date eventStartDate, Date eventEndDate, EventState eventState, Club club, Local eventLocal) {
         this.idEvent = idEvent;
         this.eventName = eventName;
         this.eventDescription = eventDescription;
         this.eventStartDate = eventStartDate;
         this.eventEndDate = eventEndDate;
-        this.eventState = eventState;
+//        this.eventState = eventState;
         this.club = club;
         this.eventLocal = eventLocal;
-        this.participants = participants;
+//        this.participants = participants;
     }
 
     public java.sql.Date getEventEndDate() {
@@ -85,13 +87,13 @@ public class Event {
         this.eventEndDate = eventEndDate;
     }
 
-    public EventState getEventState() {
-        return eventState;
-    }
+//    public EventState getEventState() {
+//        return eventState;
+//    }
 
-    public void setEventState(EventState eventState) {
-        this.eventState = eventState;
-    }
+//    public void setEventState(EventState eventState) {
+//        this.eventState = eventState;
+//    }
 
     public Club getClub() {
         return club;
@@ -109,14 +111,13 @@ public class Event {
         this.eventLocal = eventLocal;
     }
 
-    public List<User> getParticipants() {
-        return participants;
-    }
+//    public List<User> getParticipants() {
+//        return participants;
+//    }
 
-    public void setParticipants(List<User> participants) {
-        this.participants = participants;
-    }
+//    public void setParticipants(List<User> participants) {
+//        this.participants = participants;
+//    }
 
-    private List<User> participants;
 
 }
