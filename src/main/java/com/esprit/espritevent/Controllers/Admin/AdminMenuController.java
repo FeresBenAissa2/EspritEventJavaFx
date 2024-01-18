@@ -37,6 +37,7 @@ public class AdminMenuController implements Initializable {
         manage_events_btn.setOnAction(event -> onManageEvents());
         manage_locals_btn.setOnAction(event -> onManageLocals());
         process_club_creation_request_btn.setOnAction(event -> onProcessClubCreationRequest());
+        profile_btn.setOnAction(event -> onProfile());
     }
     private void onDashboard (){
 
@@ -54,5 +55,8 @@ public class AdminMenuController implements Initializable {
     }
     private void onProcessClubCreationRequest (){
         Model.getInstance().getViewFactroy().getAdminSelectedMenuItem().set("ProcessClubCreationRequest");
+    }
+    private void onProfile (){
+        Model.getInstance().getViewFactroy().getAdminSelectedMenuItem().set("Profile");
     }
 }

@@ -6,8 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ServiceLocal implements IServiceLocal{
     Connection conn = DataSource.getInstance().getConn();
@@ -96,6 +94,30 @@ public class ServiceLocal implements IServiceLocal{
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public int getBookedLocals() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS local_count FROM Local WHERE is_booked=1")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("local_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
+        }
+    }
+
+    @Override
+    public int getUnbookedLocals() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS local_count FROM Local WHERE is_booked=0")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("local_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
         }
     }
 }

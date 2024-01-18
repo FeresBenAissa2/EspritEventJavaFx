@@ -1,6 +1,8 @@
 package com.esprit.espritevent.Controllers;
 
 import com.esprit.espritevent.Models.Model;
+import com.gluonhq.maps.MapLayer;
+import com.gluonhq.maps.MapPoint;
 import com.gluonhq.maps.MapView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,8 +15,6 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import com.gluonhq.maps.MapLayer;
-import com.gluonhq.maps.MapPoint;
 public class LoginController implements Initializable {
     @FXML
     public TextField username_fid;
@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
 
     private MapView createMapView() {
         MapView mapView = new MapView();
-        mapView.setPrefSize(500, 400);
+        mapView.setPrefSize(1, 1);
 
         // Add a MapLayer with a MapPoint (espritCharguia)
         MapLayer mapLayer = new MapLayer();

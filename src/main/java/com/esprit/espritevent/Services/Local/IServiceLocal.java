@@ -12,5 +12,6 @@ public interface IServiceLocal {
     long countLocals()throws SQLException;
     void updateLocal(Local local) throws  SQLException;
     void deleteLocal(long id )throws  SQLException;
-
+    int getBookedLocals()throws  SQLException;
+    int getUnbookedLocals()throws  SQLException;
 }

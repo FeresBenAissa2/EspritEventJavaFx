@@ -100,6 +100,7 @@ public class Model {
                     this.user.setPrenom(resultSet.getString("prenom"));
                     this.user.setPhone(resultSet.getLong("phone"));
                     this.user.setRole(resultSet.getString("role"));
+                    this.user.setEmail(resultSet.getString("email"));
                     if(this.user.getRole().equals(Roles.ADMIN.name())) {
                         this.adminLoginSuccessFlag = true;
                         this.studentLoginSuccessFlag = false;

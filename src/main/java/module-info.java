@@ -6,6 +6,7 @@ module com.esprit.espritevent {
     requires mysql.connector.j;
     requires com.gluonhq.maps;
     requires org.apache.poi.poi;
+    requires java.mail;
 
     opens com.esprit.espritevent to javafx.fxml;
     exports com.esprit.espritevent;

@@ -50,11 +50,11 @@
                                 <FontAwesomeIconView size="20"/>
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" text="Manage Club Managers">
-                            <graphic>
-                                <FontAwesomeIconView size="20"/>
-                            </graphic>
-                        </Button>
+<!--                        <Button mnemonicParsing="false" text="Manage Club Managers">-->
+<!--                            <graphic>-->
+<!--                                <FontAwesomeIconView size="20"/>-->
+<!--                            </graphic>-->
+<!--                        </Button>-->
                         <Line endX="120.0" stroke="#cc181a"/>
                         <Button fx:id="profile_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile">
                             <graphic>

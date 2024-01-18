@@ -2,6 +2,9 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -55,6 +58,14 @@
       <HBox layoutX="14.0" layoutY="339.0" prefHeight="397.0" prefWidth="823.0">
          <children>
             <PieChart fx:id="pie_chart_fid" prefHeight="397.0" prefWidth="419.0" />
+            <BarChart fx:id="bar_chart_fid" prefHeight="334.0" prefWidth="394.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
          </children>
       </HBox>
    </children>

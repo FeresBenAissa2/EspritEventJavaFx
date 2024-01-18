@@ -1,9 +1,7 @@
 package com.esprit.espritevent.Views;
 
 import com.esprit.espritevent.Controllers.Admin.AdminController;
-import com.esprit.espritevent.Controllers.SignUpController;
 import com.esprit.espritevent.Controllers.Student.StudentController;
-import com.mysql.cj.conf.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,6 +19,7 @@ public class ViewFactroy {
     private AnchorPane manageEventsView;
     private AnchorPane manageLocalsView;
     private AnchorPane ProcessClubCreationRequestView;
+    private AnchorPane profileView;
     Stage stage = new Stage();
     public ViewFactroy() {
             this.adminSelectedMenuItem = new SimpleStringProperty("");
@@ -87,6 +86,16 @@ public class ViewFactroy {
 
         }
         return ProcessClubCreationRequestView;
+    }  public AnchorPane getProfileView (){
+        if(profileView == null){
+            try {
+                profileView = new FXMLLoader(getClass().getResource("/Fxml/profile.fxml")).load();
+            }catch (Exception e ){
+                e.printStackTrace();
+            }
+
+        }
+        return profileView;
     }
 
     public void showLoginWindow (){
