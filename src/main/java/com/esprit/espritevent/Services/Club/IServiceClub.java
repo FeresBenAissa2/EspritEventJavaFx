@@ -9,6 +9,16 @@ import java.util.List;
 public interface IServiceClub {
     void addClub(Club club)throws SQLException;
     List<Club> getAllClubs() throws SQLException;
+    List<Club> getAllApprovedClubs() throws SQLException;
+    List<Club> getAllClubCreationRequests() throws SQLException;
+    void updateClubStateToApproved(long id)throws SQLException;
+    void updateClubStateToRejected(long id)throws SQLException;
+    long countClubs()throws SQLException;
     void updateClub(Club club) throws  SQLException;
     void deleteClub(long id )throws  SQLException;
+
+    int getAcceptedClubsCount()throws  SQLException;
+    int getRefusedClubsCount()throws  SQLException;
+    int getInProgressClubsCount()throws  SQLException;
+
 }

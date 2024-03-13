@@ -1,0 +1,61 @@
+.main_menu_container {
+    -fx-background-color: #EEEEEE;
+    -fx-alignment: center;
+}
+.left-container {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(two-pass-box,#AAAAAA,5,0,0,4);
+}
+/*title logo section */
+.title_container{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20 20 20 20 ;
+    -fx-alignment: center;
+    -fx-label-padding: 10;
+}
+.title_container FontAwesomeIconView {
+    -fx-fill: #cc181a;
+}
+.title_container Text {
+    -fx-fill: #000000;
+    -fx-font-size: 2em;
+
+}
+
+/* Navigation Section */
+.menu_container {
+    -fx-label-padding: 10 10 10 20;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+.menu_container Button {
+   -fx-pref-width: 150;
+    -fx-pref-height:40 ;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center_left;
+    -fx-effect: dropshadow(three-pass-box,#DDDDDD,5,0,0,6);;
+}
+.menu_container Hover {
+    -fx-cursor: hand;
+}
+
+.menu_container FontAwesomeIconView {
+    -fx-fill: #cc181a;
+}
+.alt_menu_btn {
+    -fx-pref-width: 115;
+    -fx-pref-height:40 ;
+    -fx-background-color: #cc181a;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center_left;
+    /*-fx-effect: dropshadow(three-pass-box,#FFFFFF,0,0,0,0);;*/
+
+}
+.alt_menu_btn FontAwesomeIconView {
+    -fx-fill: #FFFFFF;
+    /*-fx-effect: dropshadow(three-pass-box,#FFFFFF,0,0,0,0);;*/
+}

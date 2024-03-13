@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -14,16 +17,28 @@
     <children>
       <VBox fx:id="local" layoutY="1.0" prefHeight="750.0" prefWidth="250.0" styleClass="new_local_container">
          <children>
-            <Label text="localName" />
+            <Label text="Local Name" />
             <TextField fx:id="local_name_fid" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="localCapacity" />
+            <Text fx:id="errorTextName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="err1" wrappingWidth="229.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Local Capacity" />
             <TextField fx:id="local_capacity_fid" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="localAvailableFrom" />
+            <Text fx:id="errorTextCapacity" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="err2" wrappingWidth="229.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Local Available From" />
             <DatePicker fx:id="local_available_from_fid" prefHeight="39.0" prefWidth="232.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="localAvailableUntil" />
+            <Text fx:id="errorTextAvailableFrom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="err3" wrappingWidth="228.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Local Available Until" />
             <DatePicker fx:id="local_available_until_fid" prefHeight="39.0" prefWidth="232.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="isBooked" />
-            <TextField fx:id="is_booked_fid" />
+            <Text fx:id="errorTextAvailableUntil" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="err4" wrappingWidth="229.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Booking status" />
+             <ComboBox fx:id="is_booked_fid" prefHeight="39.0" prefWidth="230.0" promptText="Select">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="true" />
+                         <String fx:value="false" />
+                     </FXCollections>
+                 </items>
+             </ComboBox>
+            <Text fx:id="errorTextIsBooked" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" text="err5" wrappingWidth="228.13671875" />
             <Button fx:id="save_btn_fid" mnemonicParsing="false" styleClass="save_button" text="Save" />
             <Button fx:id="update_btn_fid" mnemonicParsing="false" styleClass="update_button" text="Update" />
             <Button fx:id="delete_btn_fid" mnemonicParsing="false" text="Delete" />

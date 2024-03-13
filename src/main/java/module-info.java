@@ -4,6 +4,9 @@ module com.esprit.espritevent {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires mysql.connector.j;
+    requires com.gluonhq.maps;
+    requires org.apache.poi.poi;
+    requires java.mail;
 
     opens com.esprit.espritevent to javafx.fxml;
     exports com.esprit.espritevent;

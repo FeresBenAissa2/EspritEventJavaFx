@@ -1,9 +1,8 @@
 package com.esprit.espritevent.Views;
 
 import com.esprit.espritevent.Controllers.Admin.AdminController;
-import com.esprit.espritevent.Controllers.SignUpController;
+import com.esprit.espritevent.Controllers.President.PresidentController;
 import com.esprit.espritevent.Controllers.Student.StudentController;
-import com.mysql.cj.conf.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,20 +11,34 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class ViewFactroy {
+
     //Admin views
     private final SimpleStringProperty adminSelectedMenuItem;
+    private final SimpleStringProperty studentSelectedMenuItem;
+    private final SimpleStringProperty presedentSelectedMenuItem;
     private AnchorPane dahsboardView;
     private AnchorPane manageClubsView;
     private AnchorPane manageEventsView;
     private AnchorPane manageLocalsView;
+    private AnchorPane ProcessClubCreationRequestView;
+    private AnchorPane profileView;
     Stage stage = new Stage();
     public ViewFactroy() {
-            this.adminSelectedMenuItem = new SimpleStringProperty("");
+
+        this.adminSelectedMenuItem = new SimpleStringProperty("");
+        this.studentSelectedMenuItem = new SimpleStringProperty("");
+        this.presedentSelectedMenuItem = new SimpleStringProperty("");
     }
 
     public SimpleStringProperty getAdminSelectedMenuItem() {
         return adminSelectedMenuItem;
+    }
+    public SimpleStringProperty getStudentSelectedMenuItem() {
+        return studentSelectedMenuItem;
+    }    public SimpleStringProperty getPresedentSelectedMenuItem() {
+        return presedentSelectedMenuItem;
     }
 
 
@@ -75,6 +88,27 @@ public class ViewFactroy {
         }
         return manageLocalsView;
     }
+    public AnchorPane getProcessClubCreationRequestView (){
+        if(ProcessClubCreationRequestView == null){
+            try {
+                ProcessClubCreationRequestView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ProcessClubCreationRequest.fxml")).load();
+            }catch (Exception e ){
+                e.printStackTrace();
+            }
+
+        }
+        return ProcessClubCreationRequestView;
+    }  public AnchorPane getProfileView (){
+        if(profileView == null){
+            try {
+                profileView = new FXMLLoader(getClass().getResource("/Fxml/profile.fxml")).load();
+            }catch (Exception e ){
+                e.printStackTrace();
+            }
+
+        }
+        return profileView;
+    }
 
     public void showLoginWindow (){
        FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
@@ -97,6 +131,14 @@ public class ViewFactroy {
         loader.setController(studentController);
         createStage(loader);
     }
+
+    public void showPresidentWindow (){
+        FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Fxml/President/President.fxml"));
+        PresidentController presidentController = new PresidentController();
+        loader.setController(presidentController);
+        createStage(loader);
+    }
+    
     private void createStage (FXMLLoader loader){
         Scene scene = null;
         try

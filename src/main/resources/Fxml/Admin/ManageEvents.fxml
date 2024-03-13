@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.Admin.ManageEventsController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.Admin.ManageEventsController">
    <children>
-      <Text layoutX="260.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage events INTERFACE" />
+      <VBox fx:id="vbox_map_fid" layoutX="34.0" layoutY="42.0" prefHeight="642.0" prefWidth="792.0" />
    </children>
 </AnchorPane>

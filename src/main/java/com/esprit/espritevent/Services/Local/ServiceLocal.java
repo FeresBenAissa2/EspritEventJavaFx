@@ -6,8 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ServiceLocal implements IServiceLocal{
     Connection conn = DataSource.getInstance().getConn();
@@ -15,6 +13,8 @@ public class ServiceLocal implements IServiceLocal{
 
     @Override
     public void addLocal(Local local) throws SQLException {
+        System.out.println("add Local service");
+        System.out.println(local.getLocalAvailableFrom());
         try {
 
             preparedStatement = conn.prepareStatement("INSERT INTO `local` (`is_booked`,`local_available_from`,`local_available_until`,`local_capacity`,`local_name`) VALUES (?,?,?,?,?);");
@@ -57,6 +57,18 @@ public class ServiceLocal implements IServiceLocal{
     }
 
     @Override
+    public long countLocals() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS local_count FROM Local")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong("local_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
+        }
+    }
+
+    @Override
     public void updateLocal(Local local) throws SQLException {
         try {
 
@@ -82,6 +94,30 @@ public class ServiceLocal implements IServiceLocal{
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public int getBookedLocals() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS local_count FROM Local WHERE is_booked=1")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("local_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
+        }
+    }
+
+    @Override
+    public int getUnbookedLocals() throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) AS local_count FROM Local WHERE is_booked=0")) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("local_count");
+            } else {
+                throw new SQLException("Failed to retrieve club count");
+            }
         }
     }
 }
