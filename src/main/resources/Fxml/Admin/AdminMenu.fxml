@@ -8,46 +8,41 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0"
-      prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/AdminMenu.css"
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.esprit.espritevent.Controllers.Admin.AdminMenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/AdminMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.Admin.AdminMenuController">
     <children>
         <AnchorPane prefHeight="730.0" prefWidth="204.0" styleClass="title_container">
             <children>
-                <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0"
-                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <FontAwesomeIconView glyphName="BANK" size="30" text=""/>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Esprit Event"/>
+                        <FontAwesomeIconView glyphName="BANK" size="30" text="" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Esprit Event" />
                     </children>
                 </VBox>
-                <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0"
-                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                     <children>
                         <Button fx:id="dashboard_btn" mnemonicParsing="false" text="Dashborard">
                             <graphic>
-                                <FontAwesomeIconView size="20" text=""/>
+                                <FontAwesomeIconView size="20" text="" />
                             </graphic>
                         </Button>
                         <Button fx:id="process_club_creation_request_btn" mnemonicParsing="false" text="Process Club Creation Request">
                             <graphic>
-                                <FontAwesomeIconView size="20"/>
+                                <FontAwesomeIconView size="20" />
                             </graphic>
                         </Button>
                         <Button fx:id="manage_clubs_btn" mnemonicParsing="false" text="Manage Clubs">
                             <graphic>
-                                <FontAwesomeIconView size="20"/>
+                                <FontAwesomeIconView size="20" />
                             </graphic>
                         </Button>
-                        <Button fx:id="manage_events_btn" mnemonicParsing="false" text="Manage Events">
+                        <Button fx:id="manage_events_btn" mnemonicParsing="false" text="Maps">
                             <graphic>
-                                <FontAwesomeIconView size="20"/>
+                                <FontAwesomeIconView size="20" />
                             </graphic>
                         </Button>
                         <Button fx:id="manage_locals_btn" mnemonicParsing="false" text="Manage Locals">
                             <graphic>
-                                <FontAwesomeIconView size="20"/>
+                                <FontAwesomeIconView size="20" />
                             </graphic>
                         </Button>
 <!--                        <Button mnemonicParsing="false" text="Manage Club Managers">-->
@@ -55,22 +50,22 @@
 <!--                                <FontAwesomeIconView size="20"/>-->
 <!--                            </graphic>-->
 <!--                        </Button>-->
-                        <Line endX="120.0" stroke="#cc181a"/>
+                        <Line endX="120.0" stroke="#cc181a" />
                         <Button fx:id="profile_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile">
                             <graphic>
-                                <FontAwesomeIconView size="20"/>
+                                <FontAwesomeIconView size="20" />
                             </graphic>
                         </Button>
                         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">
                             <graphic>
-                                <FontAwesomeIconView size="20"/>
+                                <FontAwesomeIconView size="20" />
                             </graphic>
                         </Button>
                     </children>
                 </VBox>
             </children>
             <VBox.margin>
-                <Insets/>
+                <Insets />
             </VBox.margin>
         </AnchorPane>
     </children>

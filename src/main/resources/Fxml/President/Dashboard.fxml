@@ -2,14 +2,13 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.Student.DashboardController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/PresidentMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.President.PresidentDashboardController">
    <children>
       <Text fx:id="user_name" layoutX="21.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Hi, Feres" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="35.05078125" />
       <Label fx:id="login_date" layoutX="808.0" layoutY="34.0" styleClass="date_lbl" text="Today, 2022 - 06 - 01 " AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="34.0" />
@@ -53,8 +52,4 @@
       </HBox>
       <VBox layoutX="608.0" layoutY="371.0" prefHeight="365.0" prefWidth="240.0" styleClass="new_trans_container" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
    </children>
-   <stylesheets>
-      <URL value="@../../Styles/StudentMenu.css" />
-      <URL value="@../../Styles/StudentDashboard.css" />
-   </stylesheets>
 </AnchorPane>

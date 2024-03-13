@@ -2,7 +2,6 @@ package com.esprit.espritevent.Controllers.Admin;
 
 import com.esprit.espritevent.Models.Club;
 import com.esprit.espritevent.Models.ClubStatus;
-import com.esprit.espritevent.Models.MailSender;
 import com.esprit.espritevent.Services.Club.ServiceClub;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -61,8 +60,7 @@ public class ManageClubController implements Initializable {
         update_btn_fid.setOnAction(event -> updateClub());
         export_excel_fid.setOnAction(event ->serviceClub.exportTableToExcel());
         show_club_events_btn_fid.setOnAction(event -> {
-            MailSender mailSender = new MailSender();
-            mailSender.sendEmail("mezenblr@gmail.com","test","test");
+
         });
         initTable();
         refreshTable();

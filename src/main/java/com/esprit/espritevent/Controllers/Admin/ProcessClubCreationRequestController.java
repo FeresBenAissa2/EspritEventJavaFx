@@ -1,8 +1,7 @@
 package com.esprit.espritevent.Controllers.Admin;
 
 import com.esprit.espritevent.Models.Club;
-import com.esprit.espritevent.Models.ClubState;
-import com.esprit.espritevent.Models.Local;
+import com.esprit.espritevent.Models.MailSender;
 import com.esprit.espritevent.Services.Club.ServiceClub;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -30,7 +29,7 @@ public class ProcessClubCreationRequestController  implements Initializable  {
     public Button refuse_btn_fid;
     public Button refresh_btn_fid;
     ServiceClub serviceClub = new ServiceClub();
-
+    MailSender mailSender = new MailSender();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         refresh_btn_fid.setOnAction(event -> refreshTable());
@@ -74,12 +73,29 @@ public class ProcessClubCreationRequestController  implements Initializable  {
                 alert.show();
             }else {
                 long id = selectedLocal.getIdClub();
-                System.out.println(id);
                 serviceClub.updateClubStateToApproved(id);
+                String subject ="Acceptation de votre demande de création de club";
+                String body ="Cher"+selectedLocal.getPresident().getNom()+" "+selectedLocal.getPresident().getPrenom()+"\n\n"+
+                        "Nous sommes ravis de vous informer que votre demande de création de club au sein \n"+
+                        "de l'Université d'Esprit a été acceptée avec enthousiasme. Félicitations !\n\n"+
+                        "Nous sommes impatients de voir les activités passionnantes que votre club apportera !\n"+
+                        "à notre université. !\n\n"+
+                        "Cordialement, !\n";
+                mailSender.sendEmail(selectedLocal.getClubEmail(),subject,body);
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Success");
+                successAlert.setHeaderText(null); // No header text for simplicity
+                successAlert.setContentText("Operation completed successfully!");
+                successAlert.showAndWait();
                 refreshTable();
             }
         } catch (SQLException e) {
             System.out.println(e);
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("An error occurred");
+            errorAlert.setContentText("Something went wrong!");
+            errorAlert.showAndWait();
         }
         refreshTable();
     }
@@ -93,12 +109,33 @@ public class ProcessClubCreationRequestController  implements Initializable  {
                 alert.show();
             }else {
             long id = selectedLocal.getIdClub();
-            System.out.println(id);
             serviceClub.updateClubStateToRejected(id);
+                String subject =" Notification de refus de votre demande de création de club";
+                String body ="Cher "+selectedLocal.getPresident().getNom()+" "+selectedLocal.getPresident().getPrenom()+"\n\n"+
+                        "Nous avons examiné attentivement votre demande de création de club au sein de  \n"+
+                        "l'Université d'Esprit. C'est avec regret que nous devons vous informer que votre !\n"+
+                        "demande n'a pas été retenue pour le moment.!\n\n"+
+                        "Merci de votre compréhension. \n"+
+                        "Cordialement, !\n";
+                mailSender.sendEmail(selectedLocal.getClubEmail(),subject,body);
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Success");
+                successAlert.setHeaderText(null); // No header text for simplicity
+                successAlert.setContentText("Operation completed successfully!");
+                successAlert.showAndWait();
             refreshTable();}
         } catch (SQLException e) {
             System.out.println(e);
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText("An error occurred");
+            errorAlert.setContentText("Something went wrong!");
+            errorAlert.showAndWait();
+
         }
         refreshTable();
     }
+
+
+
 }

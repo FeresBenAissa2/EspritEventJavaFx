@@ -1,6 +1,7 @@
 package com.esprit.espritevent.Views;
 
 import com.esprit.espritevent.Controllers.Admin.AdminController;
+import com.esprit.espritevent.Controllers.President.PresidentController;
 import com.esprit.espritevent.Controllers.Student.StudentController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +13,11 @@ import java.io.IOException;
 
 
 public class ViewFactroy {
+
     //Admin views
     private final SimpleStringProperty adminSelectedMenuItem;
+    private final SimpleStringProperty studentSelectedMenuItem;
+    private final SimpleStringProperty presedentSelectedMenuItem;
     private AnchorPane dahsboardView;
     private AnchorPane manageClubsView;
     private AnchorPane manageEventsView;
@@ -22,11 +26,19 @@ public class ViewFactroy {
     private AnchorPane profileView;
     Stage stage = new Stage();
     public ViewFactroy() {
-            this.adminSelectedMenuItem = new SimpleStringProperty("");
+
+        this.adminSelectedMenuItem = new SimpleStringProperty("");
+        this.studentSelectedMenuItem = new SimpleStringProperty("");
+        this.presedentSelectedMenuItem = new SimpleStringProperty("");
     }
 
     public SimpleStringProperty getAdminSelectedMenuItem() {
         return adminSelectedMenuItem;
+    }
+    public SimpleStringProperty getStudentSelectedMenuItem() {
+        return studentSelectedMenuItem;
+    }    public SimpleStringProperty getPresedentSelectedMenuItem() {
+        return presedentSelectedMenuItem;
     }
 
 
@@ -120,7 +132,12 @@ public class ViewFactroy {
         createStage(loader);
     }
 
-
+    public void showPresidentWindow (){
+        FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Fxml/President/President.fxml"));
+        PresidentController presidentController = new PresidentController();
+        loader.setController(presidentController);
+        createStage(loader);
+    }
     
     private void createStage (FXMLLoader loader){
         Scene scene = null;

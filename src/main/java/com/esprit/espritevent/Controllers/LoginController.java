@@ -1,14 +1,10 @@
 package com.esprit.espritevent.Controllers;
 
 import com.esprit.espritevent.Models.Model;
-import com.gluonhq.maps.MapLayer;
-import com.gluonhq.maps.MapPoint;
-import com.gluonhq.maps.MapView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -16,6 +12,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 public class LoginController implements Initializable {
+    static {
+        // Set the "http.agent" system property
+        System.setProperty("http.agent", "Gluon Mobile/1.0.3");
+    }
     @FXML
     public TextField username_fid;
     @FXML
@@ -27,14 +27,13 @@ public class LoginController implements Initializable {
     public Button signup_btn;
     public VBox vbox_map_fid;
 
-    private final MapPoint espritCharguia = new MapPoint(48.8583702,2.2944813);
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        MapView mapView = createMapView();
-        vbox_map_fid.getChildren().add(mapView);
-        VBox.setVgrow(mapView, Priority.ALWAYS);
+//        MapView mapView = createMapView();
+//        vbox_map_fid.getChildren().add(mapView);
+//        VBox.setVgrow(mapView, Priority.ALWAYS);
 //        login_btn.setOnAction(new EventHandler<ActionEvent>() {
 //            @Override
 //            public void handle(ActionEvent event) {
@@ -50,15 +49,17 @@ public class LoginController implements Initializable {
         );
     }
 
-    private MapView createMapView() {
-        MapView mapView = new MapView();
-        mapView.setPrefSize(1, 1);
+//    private MapView createMapView() {
+//        MapView mapView = new MapView();
+//        mapView.setPrefSize(500, 400);
+//        mapView.addLayer(new CustomMapLayer());
+//        mapView.setZoom(15);
+//        mapView.flyTo(0,espritCharguia,0.1);
+//
+//        return mapView;
+//    }
 
-        // Add a MapLayer with a MapPoint (espritCharguia)
-        MapLayer mapLayer = new MapLayer();
 
-        return mapView;
-    }
     private void onLogin () {
         Stage stage = (Stage) username_fid.getScene().getWindow();
         Model.getInstance().evaluateUserCred(username_fid.getText(),password_fid.getText());
@@ -70,7 +71,7 @@ public class LoginController implements Initializable {
             Model.getInstance().getViewFactroy().showStudentWindow();
         }else if( Model.getInstance().getPresidentLoginSuccessFlag()){
             Model.getInstance().getViewFactroy().closeStage(stage);
-            Model.getInstance().getViewFactroy().showAdminWindow();
+            Model.getInstance().getViewFactroy().showPresidentWindow();
         }
         else {
             username_fid.setText("");

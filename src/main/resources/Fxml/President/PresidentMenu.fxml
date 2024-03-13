@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/PresidentMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.espritevent.Controllers.President.PresidentMenuController">
+    <children>
+        <AnchorPane prefHeight="730.0" prefWidth="204.0" styleClass="title_container">
+            <children>
+                <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="BANK" size="30" text="" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Esprit Event" />
+                    </children>
+                </VBox>
+                <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                    <children>
+                        <Button fx:id="dashboard_btn" mnemonicParsing="false" text="Dashborard">
+                     <graphic>
+                        <FontAwesomeIconView size="20" text="" />
+                     </graphic></Button>
+                        <Button fx:id="new_club_proposal_fid" mnemonicParsing="false" text="New club proposal">
+                     <graphic>
+                        <FontAwesomeIconView size="20" />
+                     </graphic></Button>
+                        <Button fx:id="event_available_fid" mnemonicParsing="false" text="Event available">
+                     <graphic>
+                        <FontAwesomeIconView size="20" />
+                     </graphic></Button>
+                        <Line endX="120.0" stroke="#cc181a" />
+                        <Button fx:id="profile_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile">
+                     <graphic>
+                        <FontAwesomeIconView size="20" />
+                     </graphic></Button>
+                        <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">
+                     <graphic>
+                        <FontAwesomeIconView size="20" />
+                     </graphic></Button>
+                    </children>
+                </VBox>
+            </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+        </AnchorPane>
+    </children>
+</VBox>

@@ -1,4 +1,4 @@
-package com.esprit.espritevent.Controllers.Student;
+package com.esprit.espritevent.Controllers.President;
 
 import com.esprit.espritevent.Models.Model;
 import javafx.event.ActionEvent;
@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentMenuController implements Initializable {
+public class PresidentMenuController implements Initializable {
 
     public Button dashboard_btn;
     public Button new_club_proposal_fid;
@@ -20,19 +20,21 @@ public class StudentMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners ();
         logout_btn.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
             public void handle(ActionEvent actionEvent) {
                 Model.getInstance().getViewFactroy().showLoginWindow();
-                Model.getInstance().setAdminLoginSuccessFlag(false);
+                Model.getInstance().setStudentLoginSuccessFlag(false);
             }
         });
+
     }
     private void addListeners () {
         profile_btn.setOnAction(event -> onProfile());
 
     }
     private void onProfile (){
-        Model.getInstance().getViewFactroy().getStudentSelectedMenuItem().set("Profile");
+        Model.getInstance().getViewFactroy().getPresedentSelectedMenuItem().set("Profile");
     }
 
 }

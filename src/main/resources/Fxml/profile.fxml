@@ -30,7 +30,7 @@
       <TextField fx:id="username_fid" styleClass="input_field" />
       <Text fx:id="username_err_fid" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" />
       <Label text="Password" />
-      <PasswordField fx:id="password_fid" />
+      <PasswordField fx:id="password_fid" styleClass="input_field" />
       <Text fx:id="password_err_fid" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_label" />
       <Label text="Email" />
       <TextField fx:id="email_fid" prefHeight="80.0" prefWidth="650.0" styleClass="input_field" />
